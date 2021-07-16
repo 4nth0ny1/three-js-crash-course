@@ -12,11 +12,18 @@ renderer.setSize(
 );
 document.body.appendChild(renderer.domElement);
 
+window.addEventListener('resize', function () {
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+});
 
 //create the shape 
 var geometry = new THREE.BoxGeometry(1, 1, 1);
 
-// create a material, color, or image texture 
+//create a material, color, or image texture 
 var material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, });
 var cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
