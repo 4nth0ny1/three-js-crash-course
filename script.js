@@ -20,6 +20,9 @@ window.addEventListener('resize', function () {
     camera.updateProjectionMatrix();
 });
 
+//controls 
+controls = new THREE.OrbitControls(camera, renderer.domElement);
+
 //create the shape 
 var geometry = new THREE.BoxGeometry(1, 1, 1);
 
